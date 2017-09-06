@@ -42,3 +42,21 @@ font-family: 'Js-Flat';
   background: url("../img/03.png");
   padding-top: 35px;
 }
+.wemy-nav {
+  margin-top: 10px;
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+}
+.wemy-nav li a{
+  color: #000;
+}
+.wemy-nav li:hover {
+  display: flex;
+  -webkit-transition:all 0.5s linear;
+  transition:all 0.5s linear;
+  -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+	box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  background-color: rgba(23, 162, 184, 0.44) !important;
+}
