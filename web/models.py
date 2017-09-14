@@ -19,4 +19,9 @@ class Posts(models.Model):
 	comment_status = models.CharField(max_length = 20, default = 'open')
 	password = models.CharField(max_length=20)
 	img = models.CharField(max_length = 255)
-	
+
+class slider(models.Model):
+	author = models.ForeignKey(User)
+	date = models.DateTimeField()
+	img = models.TextField()
+	title = models.TextField()

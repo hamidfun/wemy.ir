@@ -22,7 +22,7 @@ from web import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^$',views.index),
+    url(r'^',include('web.url', namespace='blog')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
