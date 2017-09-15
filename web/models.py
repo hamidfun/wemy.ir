@@ -25,3 +25,7 @@ class slider(models.Model):
 	date = models.DateTimeField()
 	img = models.TextField()
 	title = models.TextField()
+
+class Opt(models.Model):
+	key = models.CharField(max_length = 255)
+	value = models.CharField(max_length = 255)
