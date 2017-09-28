@@ -25,12 +25,14 @@
           </figure>
           <h4><a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">{{ post.title }}</a></h4>
           <h5>
-            {% if post.excerpt != '' %}
-              {{post.excerpt|safe}}
-            {% else %}
-              {{post.content|safe|truncatewords_html:50}}
-            {% endif %}
-          </h5>
+            <a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">
+              {% if post.excerpt != '' %}
+                {{post.excerpt|safe}}
+              {% else %}
+                {{post.content|safe|truncatewords_html:50}}
+              {% endif %}
+          </a>
+        </h5>
       </article>
     {% endfor %}
 {% endblock posts %}

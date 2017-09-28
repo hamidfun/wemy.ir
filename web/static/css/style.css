@@ -336,10 +336,13 @@ figure {
     padding-bottom: 4px
 }
 
-#posts h5 {
+#posts h5 a{
     line-height: 1.7;
     font-size: 14px;
     color: #8b9197
+}
+#posts h5 a:hover {
+  text-decoration: none;
 }
 
 /* end */

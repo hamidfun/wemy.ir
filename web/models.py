@@ -22,6 +22,7 @@ class Posts(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
 class slider(models.Model):
 	author = models.ForeignKey(User)
 	date = models.DateTimeField()
@@ -29,4 +30,6 @@ class slider(models.Model):
 	title = models.TextField()
 class Opt(models.Model):
 	key = models.CharField(max_length = 255)
-	value = models.CharField(max_length = 255)
+	value = RichTextUploadingField()
+	def __unicode__(self):
+		return "{} - {}".format(self.key,self.value)
