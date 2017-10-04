@@ -3,4 +3,5 @@ from django.contrib import admin
 from web import views
 urlpatterns = [
     url(r'^$', views.index, name='list'),
+    url(ur'^(?P<title>[\w-]+)$', views.page),
 ]

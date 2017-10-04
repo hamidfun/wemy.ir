@@ -34,6 +34,7 @@
             </ul>
         </div>
     </nav>
+    {% block parralax %}
     <section class="parralax">
         <div class="pattern">
             <h1>
@@ -41,6 +42,8 @@
             </h1>
         </div>
     </section>
+    {% endblock parralax %}
+    {% block nav-category %}
     <div class="container">
         <ul class="nav justify-content-center rtl wemy-nav">
             <button type="button" class="btn-top btn-sm btn btn-outline-secondary"><i class="fa fa-long-arrow-up"
@@ -62,8 +65,10 @@
                                                                                       aria-hidden="true"></i></button>
         </ul>
     </div>
+    {% endblock nav-category %}
 </header>
 <main>
+    {% block section_one %}
     <section class="container section_one rtl">
         <div class="row justify-content-between">
             <section class="col-lg-4 myinfo">
@@ -130,6 +135,8 @@
             </section>
         </div>
     </section>
+    {% endblock section_one %}
+    {% block section_two %}
     <section class="container section_two">
         <div class="row justify-content-between">
             <section>
@@ -198,6 +205,7 @@
             </section>
         </div>
     </section>
+    {% endblock section_two %}
     <section class="container section_three">
         <div class="row">
             <section id="posts">
@@ -206,6 +214,20 @@
         </div>
     </section>
 </main>
+<footer>
+  <section class="row rtl">
+    <article class="copyright-fa col-lg-8">
+      <p>
+     آن جیزی را که در این سایت میتوانید مشاهده کنید متعلق به همین سایت میباشد و هر گونه انتشار آن با ذکر نام و لینک منبع مجاز است.
+      </p>
+    </article>
+    <article class="copyright-en col-lg-4">
+      <p>
+      All Rights Reserved - © {% now "Y" %}
+      </p>
+    </article>
+  </section>
+</footer>
 <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
