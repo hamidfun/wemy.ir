@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load replace %}
+{% block title %} وب سایت من و ما|صفحه اصلی {% endblock title %}
+{% block website-name %}WEMY{% endblock website-name %}
+{% block slider-id %}
+    {% for slide in slider %}
+        <li data-target="#slider"  {% if forloop.counter0 == 0 %} class = "active" {% endif %} data-slide-to="{{slide.id}}"></li>
+    {% endfor %}
+{% endblock slider-id %}
+{% block slider-img %}
+    {% for slide in slider %}
+    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+        <img class="d-block w-100" src="{{slide.img}}" alt="{{slide.title}}"
+             width="auto" height="315px" title="{{slide.title}}">
+    </div>
+    {% endfor %}
+{% endblock slider-img %}
+{% block posts %}
+    {% for post in posts %}
+      <article class="white-panel">
+          <figure class="thumbnail">
+              <a target="_blank" href="/{% if post.url != '' %}{{post.link|replace }}{% else %}{{post.title|replace }}{% endif %}">
+                  <img src="/media/{{post.img}}" alt="{{post.title}}" title="{{post.title}}" width="100%" height="100%">
+              </a>
+          </figure>
+          <h4><a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">{{ post.title }}</a></h4>
+          <h5>
+            <a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">
+              {% if post.excerpt != '' %}
+                {{post.excerpt|safe}}
+              {% else %}
+                {{post.content|safe|truncatewords_html:50}}
+              {% endif %}
+          </a>
+        </h5>
+      </article>
+    {% endfor %}
+{% endblock posts %}

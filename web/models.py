@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 #translattion
 from django.utils.translation import ugettext_lazy as _
-class category(models.Model):
+class Category(models.Model):
 	cat_name = models.CharField(max_length = 255)
 	cat_url = models.CharField(max_length = 255, null = True, blank = True)
 
@@ -23,7 +23,7 @@ class Posts(models.Model):
 	password = models.CharField(max_length=20,blank = True, null = True )
 	img = models.ImageField(_('main image'), upload_to='posts/%Y/%m/%d', blank=True, null=True)
 	url = models.CharField(max_length = 200, help_text = '(پیش فرض اسلش عنوان مطلب)', blank = True, null = True )
-	category = models.ForeignKey(category, null= True, blank = True)
+	category = models.ForeignKey(Category, null= True, blank = True)
 	date = models.DateTimeField(auto_now=True,auto_now_add=False)
 	date_modify = models.DateTimeField(auto_now = False, auto_now_add=True)
 
