@@ -23,7 +23,9 @@
                   <img src="/media/{{post.img}}" alt="{{post.title}}" title="{{post.title}}" width="100%" height="100%">
               </a>
           </figure>
-          <h4><a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">{{ post.title }}</a></h4>
+          <h4>
+            <a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">{{ post.title }}</a>
+          </h4>
           <h5>
             <a href="/{% if post.url != '' %}{{post.link|replace}}{% else %}{{post.title|replace}}{% endif %}">
               {% if post.excerpt != '' %}
