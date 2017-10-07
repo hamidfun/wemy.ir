@@ -3,15 +3,17 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,HttpResponse
 
-from web.models import Posts, slider, Category
+from web.models import Posts, Slider, Category, Opt
 
 
 def navANDslider(request):
 	categorys = Category.objects.all()
-	slids = slider.objects.all()
+	slids = Slider.objects.all()
+	opt = Opt.objects.all()
 	context = {
 		'categorys' : categorys,
 		'slider' : slids,
+		'opts' : opt,
 	}
 	return context
 

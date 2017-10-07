@@ -7,12 +7,14 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 #translattion
 from django.utils.translation import ugettext_lazy as _
+
 class Category(models.Model):
 	cat_name = models.CharField(max_length = 255)
 	cat_url = models.CharField(max_length = 255, null = True, blank = True)
 
 	def __unicode__(self):
 		return self.cat_name
+
 class Posts(models.Model):
 	title = models.CharField(max_length=255)
 	content = RichTextUploadingField()
@@ -22,20 +24,23 @@ class Posts(models.Model):
 	comment_status = models.CharField(max_length = 20, default = 'open')
 	password = models.CharField(max_length=20,blank = True, null = True )
 	img = models.ImageField(_('main image'), upload_to='posts/%Y/%m/%d', blank=True, null=True)
-	url = models.CharField(max_length = 200, help_text = '(پیش فرض اسلش عنوان مطلب)', blank = True )
+	url = models.URLField(max_length = 200, help_text = '(پیش فرض اسلش عنوان مطلب)', blank = True )
 	category = models.ForeignKey(Category, null= True, blank = True)
 	date = models.DateTimeField(auto_now=True,auto_now_add=False)
 	date_modify = models.DateTimeField(auto_now = False, auto_now_add=True)
 
 	def __unicode__(self):
 		return self.title
-class slider(models.Model):
+class Slider(models.Model):
 	author = models.ForeignKey(User)
 	date = models.DateTimeField()
 	img = models.TextField()
 	title = models.TextField()
+
 class Opt(models.Model):
 	key = models.CharField(max_length = 255)
+	url = models.URLField(max_length = 255)
 	value = RichTextUploadingField()
+
 	def __unicode__(self):
 		return "{} - {}".format(self.key,self.value)

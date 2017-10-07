@@ -20,7 +20,7 @@ from django.conf import settings
 
 from web import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^hamid/admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^',include('web.url', namespace='blog')),
 ]

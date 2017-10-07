@@ -14,7 +14,11 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
-        <a class="navbar-brand" href="./">[ WEMY . IR ]</a>
+        <a class="navbar-brand" href="./">
+          {% for opt in opts %}
+          {% if opt.key == 'title_en' %}{{ opt.value }}{% endif %}
+          {% endfor %}
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -23,15 +27,11 @@
 
         <div class="collapse navbar-collapse rtl" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">صفحه اول</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disable" href="#">درباره من</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">تماس با من</a>
-                </li>
+            {% for opt in opts %}
+              {% if opt.key == 'menu-top' %}
+                <li class="nav-item active"><a class="nav-link" href="#">{{ opt.value }}</a></li>
+              {% endif %}
+            {% endfor %}
             </ul>
         </div>
     </nav>
@@ -39,7 +39,11 @@
     <section class="parralax">
         <div class="pattern">
             <h1>
-                {% block website-name %}{% endblock website-name %}
+              {% for opt in opts %}
+                {% if opt.key == 'title_circle' %}
+                  {{ opt.value }}
+                {% endif %}
+              {% endfor %}
             </h1>
         </div>
     </section>
@@ -69,13 +73,11 @@
                 <div class="mypicture">
                     <figure></figure>
                 </div>
-                <p><strong>من حمید حیدری ‌</strong>
-                    یه دانشجو کسی که به خاطر یاد دادنش، یادگرفتن رو خیلی دوست داره. دنبال چیزهای عجیبم، از تکرار خوش
-                    نمیاد مهربونی رو دوست دارم امانه تظاهر رو . این دنیا هم برام قشنگه فقط به خاطر چیزهایی که عاشقشم مثل کد
-                    نویسی وگرنه ازش متنفرم.
-                    همین :))
-                </p>
-                <p><strong>کاربرعزیزم :</strong><span class="text-danger"> خوش اومدی به وبلاگم </span></P>
+              {% for opt in opts %}
+                {% if opt.key == 'aboutme' %}
+                    {{ opt.value|safe }}
+                {% endif %}
+              {% endfor %}
             </section>
             <section class="col-lg-3">
                 <div id="slider" class="carousel slide" data-ride="carousel">
@@ -98,32 +100,63 @@
             <section class="col-lg-2">
                 <div class="card hovercard">
                     <div class="cardheader">
-                        <img src="{% static 'img/img1.jpeg' %}" alt="Third slide" width="100%" height="150px">
+                        <img src="{% static 'img/img1.jpeg' %}"
+                              alt="Third slide" width="100%" height="150px">
                     </div>
                     <div class="avatar">
                         <img alt="" src="{% static 'img/img4.jpeg' %}">
                     </div>
                     <div class="info">
                         <div class="title">
-                            <a target="_blank" href="http://scripteden.com/">حمید حیدری</a>
+                            <a target="_blank" href="http://scripteden.com/">
+                              {% for opt in opts %}
+                                {% if opt.key == 'aboutme_name' %}
+                                    {{ opt.value|safe }}
+                                {% endif %}
+                              {% endfor %}
+                            </a>
                         </div>
-                        <div class="desc">دنیا اینجاست</div>
+                        <div class="desc">
+                          {% for opt in opts %}
+                            {% if opt.key == 'aboutme_short_description' %}
+                                {{ opt.value|safe }}
+                            {% endif %}
+                          {% endfor %}
+                        </div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a class="btn btn-danger btn-sm" rel="publisher"
-                           href="https://plus.google.com/+ahmshahnuralam">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a class="btn btn-primary btn-sm" rel="publisher"
-                           href="https://plus.google.com/shahnuralam">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-                            <i class="fa fa-behance"></i>
-                        </a>
+                      {% for opt in opts %}
+                        {% if opt.key == 'twitter' %}
+                          <a class="btn btn-primary btn-twitter btn-sm"
+                              href="{{ opt.value }}">
+                              <i class="fa fa-twitter"></i>
+                          </a>
+                        {% endif %}
+                        {% if opt.key == 'googleplus' %}
+                          <a class="btn btn-primary btn-sm" rel="publisher"
+                             href="{{ opt.value }}">
+                              <i class="fa fa-google-plus"></i>
+                          </a>
+                        {% endif %}
+                        {% if opt.key == 'facebook' %}
+                          <a class="btn btn-primary btn-sm" rel="publisher"
+                             href="{{ opt.value }}">
+                              <i class="fa fa-facebook"></i>
+                          </a>
+                        {% endif %}
+                        {% if opt.key == 'telegram' %}
+                          <a class="btn btn-primary btn-sm" rel="publisher"
+                              href="{{ opt.value }}">
+                              <i class="fa fa-telegram"></i>
+                          </a>
+                        {% endif %}
+                        {% if opt.key == 'instagram' %}
+                          <a class="btn btn-primary btn-sm" rel="publisher"
+                              href="{{ opt.value }}">
+                              <i class="fa fa-instagram"></i>
+                          </a>
+                        {% endif %}
+                      {% endfor %}
                     </div>
                 </div>
             </section>

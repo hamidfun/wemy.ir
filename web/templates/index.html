@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load replace %}
 {% block title %} وب سایت من و ما|صفحه اصلی {% endblock title %}
-{% block website-name %}WEMY{% endblock website-name %}
 {% block slider-id %}
     {% for slide in slider %}
         <li data-target="#slider"  {% if forloop.counter0 == 0 %} class = "active" {% endif %} data-slide-to="{{slide.id}}"></li>
