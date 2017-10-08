@@ -299,20 +299,52 @@ figure {
 
 /* posts */
 
+background:none
 #posts {
     position: relative;
     max-width: 100%;
     width: 100%;
     direction: rtl
-}
-
-.white-panel {
+    font-size: 18px;}
+ite-panel {
     position: absolute;
     background: white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 10px
 }
+/* block posts for page */
+#page-post {
+  background: white;
+  padding: 20px;
+  direction: rtl;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+#page-post figure {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  max-width: 650px !important;
+  height: auto !important;
+  margin: 0px auto;
+  background:none
+}
+#page-post h1 {
+  direction: rtl;
+  text-align: rtl;
+}
+#page-post h1 a {
+    font-size: 18px;
+    color: #333;
+    font-weight: 700;
+    line-height: 2
+}
 
+#page-post h1 a:hover {
+    color: #F44336;
+    border-bottom: 1px dotted #F44336;
+    text-decoration: none;
+    padding-bottom: 4px
+}
+/* end */
 .white-panel:hover {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
     margin-top: -5px;
